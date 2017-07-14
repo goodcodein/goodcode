@@ -9,6 +9,7 @@ use Mix.Config
 config :goodcode,
   namespace: GC
 
+
 # Configures the endpoint
 config :goodcode, GC.Web.Endpoint,
   url: [host: "localhost"],
