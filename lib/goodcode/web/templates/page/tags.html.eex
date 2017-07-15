@@ -1,0 +1,6 @@
+<h1 class=title>Tags</h1>
+<div class='tags'>
+  <%= for tag <- @tags do %>
+    <%= link tag, to: "/tag/#{tag}", class: "tag" %>
+  <% end %>
+</div>

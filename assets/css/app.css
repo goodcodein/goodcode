@@ -50,7 +50,9 @@ table {
 /*core css*/
 .container{
   font-family: monospace;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 main{
   border-top: solid 2px orangered;
@@ -63,16 +65,17 @@ footer, header {
   padding: 10px;
   background-color: orangered;
   color: white;
+  font-size: 1.5em;
 }
 
 h1{
   font-size: 2em;
 }
 h2{
-  font-size: 1.8em;
+  font-size: 1.6em;
 }
 h3{
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 
 a {
@@ -81,6 +84,45 @@ a {
 }
 
 header a, footer a {
-  color: #fff;
-  text-decoration: underline;
+  color: #222;
+}
+
+header a::before, footer a::before {
+  content: '#';
+}
+
+.post{
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.post h1, .post h2{
+  color: #0366d6;
+}
+code.inline{
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+.tags{
+  margin: 10px 0;
+}
+a.tag {
+  border: solid;
+  padding: 2px;
+  border-left: solid 10px;
+}
+
+a.tag::before{
+  content: '#';
+}
+
+.post + .post {
+  border-top: solid orangered 2px;
+}
+
+h1.title{
+  border-bottom: solid #bbb 4px;
 }

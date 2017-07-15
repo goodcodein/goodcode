@@ -30,11 +30,15 @@ defmodule GC.Mixfile do
     [{:phoenix, "~> 1.3.0-rc"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_html, "~> 2.6"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
+     {:earmark, "~> 1.2.2"},
+     {:yamerl, "~> 0.4.0"},
 
      {:tentacat, "~> 0.6"},
+
+     {:cortex, "~> 0.2", only: [:dev, :test]},
+     {:phoenix_live_reload, "~> 1.0", only: :dev},
     ]
   end
 end

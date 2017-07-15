@@ -17,6 +17,8 @@ defmodule GC.Web.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/tag/:tag", PageController, :tag
+    get "/tags", PageController, :tags
   end
 
   # Other scopes may use custom stacks.

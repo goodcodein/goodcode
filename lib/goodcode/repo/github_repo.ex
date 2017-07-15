@@ -17,11 +17,13 @@ defmodule Repo.GithubRepo do
       TC.find(@owner, @repo, subdomain_path, client)
       |> Enum.map(fn %{"html_url" => html_url, "path" => path, "type" => "file"} ->
         {:ok, content} = download_post(@owner, @repo, path, client)
-        %Post{
-          github_url: html_url,
-          github_path: path,
-          file_content: content,
-        }
+        {:ok, post} =
+          %Post{
+            github_url: html_url,
+            github_path: path,
+            file_content: content,
+          } |> Post.parse(content)
+        post
       end)
     end)
   end
