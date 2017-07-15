@@ -20,4 +20,8 @@ defmodule GC.Web.PageController do
   def tags(conn, _) do
     render conn, "tags.html", tags: Repo.Posts.all_tags
   end
+
+  def archives(conn, _) do
+    render conn, "archives.html", posts: Repo.Posts.all
+  end
 end

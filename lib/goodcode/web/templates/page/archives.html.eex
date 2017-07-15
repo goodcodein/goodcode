@@ -1,0 +1,14 @@
+<h1 class=title>
+  Archives
+</h1>
+
+<%= for post <- @posts do %>
+  <div>
+    <a href='#'><%= post.title %></a>
+    <div class="tags">
+      <%= for tag <- post.tags do %>
+        <%= link tag, to: "/tag/#{tag}", class: "tag" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
