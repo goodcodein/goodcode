@@ -5,7 +5,7 @@
 <%= for post <- @posts do %>
   <div class="post">
     <h1>
-      <a href='#'><%= post.title %></a>
+      <%= link post.title, to: post_url(post) %>
     </h1>
     <article>
       <%= {:safe, post.body} %>

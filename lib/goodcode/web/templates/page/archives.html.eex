@@ -4,7 +4,7 @@
 
 <%= for post <- @posts do %>
   <div>
-    <a href='#'><%= post.title %></a>
+    <%= link post.title, to: post_url(post) %>
     <div class="tags">
       <%= for tag <- post.tags do %>
         <%= link tag, to: "/tag/#{tag}", class: "tag" %>
