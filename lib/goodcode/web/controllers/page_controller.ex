@@ -1,5 +1,6 @@
 defmodule GC.Web.PageController do
   use GC.Web, :controller
+  alias Repo.Posts
 
   def index(conn, _params) do
     render conn, "index.html", posts: Repo.Posts.all()
@@ -23,5 +24,10 @@ defmodule GC.Web.PageController do
 
   def archives(conn, _) do
     render conn, "archives.html", posts: Repo.Posts.all
+  end
+
+  def show(conn, %{"id" => id, "folder" => folder}) do
+    post = Posts.find_by_id(folder, id)
+    render conn, "show.html", post: post
   end
 end

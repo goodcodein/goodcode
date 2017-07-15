@@ -28,6 +28,14 @@ defmodule Repo.Posts do
     |> Enum.map(fn {tag, _} -> tag end)
   end
 
+  @spec find_by_id(String.t, String.t) :: Post.t
+  def find_by_id(folder, id) do
+    case :ets.lookup(@ids_tab, {folder, id}) do
+      [{_, url}] -> for_url(url)
+      _ -> nil
+    end
+  end
+
   @spec for_tags(String.t) :: list(Post.t)
   def for_tags(tag) do
     :ets.lookup(@tags_tab, tag)
@@ -77,12 +85,15 @@ defmodule Repo.Posts do
                           {:write_concurrency, true}, {:read_concurrency, true}])
     :ets.new(@tags_tab, [:named_table, :bag, :public,
                           {:write_concurrency, true}, {:read_concurrency, true}])
+    :ets.new(@ids_tab, [:named_table, :set, :public,
+                          {:write_concurrency, true}, {:read_concurrency, true}])
 
     Repo.GithubRepo.all
     |> Enum.each(fn post ->
       {subdomain, _} = post_url = Post.url(post)
       :ets.insert(@subdomains_posts_tab, {subdomain, post_url})
       :ets.insert(@posts_tab, {post_url, post})
+      :ets.insert(@ids_tab, {{post.folder, post.id}, post_url})
       post.tags |> Enum.each(fn tag ->
         :ets.insert(@tags_tab, {tag, post_url})
       end)

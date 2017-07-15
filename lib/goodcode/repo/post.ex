@@ -3,6 +3,7 @@ defmodule Repo.Post do
 
   @type t :: %__MODULE__{
     id: String.t,
+    folder: String.t,
     title: String.t,
     tags: list(String.t),
     body: String.t,
@@ -10,7 +11,7 @@ defmodule Repo.Post do
     github_path: String.t,
     file_content: String.t,
   }
-  defstruct id: "", title: "", tags: [], body: "", github_url: "", github_path: "", file_content: ""
+  defstruct id: "", folder: "", title: "", tags: [], body: "", github_url: "", github_path: "", file_content: ""
   def url(%Post{github_path: path}) do
     [subdomain, post_path] = path |> String.split("/")
     {subdomain, post_path |> String.replace_suffix(".md", "")}
@@ -25,6 +26,7 @@ defmodule Repo.Post do
     {:ok, Map.merge(post, %{
       id: to_string(id),
       title: to_string(title),
+      folder: Path.dirname(post.github_path),
       date: date,
       tags: tags |> Enum.map(&to_string/1),
       body: render_html(body),

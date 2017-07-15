@@ -20,6 +20,7 @@ defmodule GC.Web.Router do
     get "/tag/:tag", PageController, :tag
     get "/tags", PageController, :tags
     get "/archives", PageController, :archives
+    get "/:folder/:id/:title", PageController, :show
   end
 
   # Other scopes may use custom stacks.

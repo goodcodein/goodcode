@@ -1,0 +1,13 @@
+<div class="post">
+  <h1 class="title">
+    <%= link @post.title, to: post_url(@post) %>
+  </h1>
+  <article>
+    <%= {:safe, @post.body} %>
+  </article>
+  <div class="tags">
+    <%= for tag <- @post.tags do %>
+      <%= link tag, to: "/tag/#{tag}", class: "tag" %>
+    <% end %>
+  </div>
+</div>
