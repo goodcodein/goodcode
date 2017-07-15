@@ -30,4 +30,9 @@ defmodule GC.Web.PageController do
     post = Posts.find_by_id(folder, id)
     render conn, "show.html", post: post
   end
+
+  def permalink(conn, %{"id" => id, "folder" => folder}) do
+    post = Posts.find_by_id(folder, id)
+    redirect(conn, to: GC.Web.PageView.post_url(post))
+  end
 end
