@@ -3,7 +3,7 @@ defmodule GC.Web.PageView do
 
   alias Repo.Post
 
-  def post_url(%Post{id: id, title: title, github_path: github_path, folder: folder}) do
+  def post_url(%Post{id: id, title: title, folder: folder}) do
     "/#{folder}/#{id}/#{slugify(title)}"
   end
 

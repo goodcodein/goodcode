@@ -8,7 +8,7 @@ defmodule GC.RssFeed do
     items = Enum.map(posts, fn post ->
       B.item(post.title, post.body, (Timex.format! post.date, "{RFC1123z}"), Path.join(Config.root_url, GC.Web.PageView.post_url(post)))
     end)
-    feed = B.feed(channel, items)
+    _feed = B.feed(channel, items)
   end
 
 

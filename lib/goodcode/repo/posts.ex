@@ -6,6 +6,7 @@ defmodule Repo.Posts do
 
   use GenServer
 
+  @ids_tab :ids_tab
   @posts_tab :posts_tab
   @tags_tab :tags_tab
   @subdomains_posts_tab :subdomains_posts_tab

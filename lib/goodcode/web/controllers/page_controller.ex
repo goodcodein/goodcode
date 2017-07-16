@@ -41,7 +41,7 @@ defmodule GC.Web.PageController do
     render conn, "index.html", posts: Repo.Posts.for_subdomain(folder), title: folder
   end
 
-  def rss(conn, params) do
+  def rss(conn, _params) do
     conn
     |> put_resp_content_type("application/rss+xml")
     |> send_resp(:ok, GC.RssFeed.xml(Posts.all))
