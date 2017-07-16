@@ -36,4 +36,8 @@ defmodule GC.Web.PageController do
     post = Posts.find_by_id(folder, id)
     redirect(conn, to: GC.Web.PageView.post_url(post))
   end
+
+  def folder(conn, %{"folder" => folder}) do
+    render conn, "index.html", posts: Repo.Posts.for_subdomain(folder), title: folder
+  end
 end
