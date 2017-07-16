@@ -36,6 +36,7 @@ defmodule GC.Mixfile do
      {:yamerl, "~> 0.4.0"},
 
      {:tentacat, "~> 0.6"},
+     {:timex, "~> 3.1" },
 
      {:cortex, "~> 0.2", only: [:dev, :test]},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
