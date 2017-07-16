@@ -4,10 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>goodcode</title>
+
+    <%= if @conn.assigns[:post] do %>
+      <meta name="description" content="<%= @post.title %>">
+      <link rel="canonical" href="http://goodcode.in<%= GC.Web.PageView.post_url @post %>" />
+    <% end %>
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <title><%= @title %> - goodcode</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css" />
   </head>
@@ -24,7 +31,7 @@
       <p class="alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
-        <%= render @view_module, @view_template, assigns %>
+      <%= render @view_module, @view_template, assigns %>
       </main>
 
       <footer>
@@ -35,7 +42,7 @@
     <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <script charset="utf-8">
-      hljs.initHighlightingOnLoad()
+hljs.initHighlightingOnLoad()
     </script>
   </body>
 </html>

@@ -3,7 +3,7 @@ defmodule GC.Web.PageController do
   alias Repo.Posts
 
   def index(conn, _params) do
-    render conn, "index.html", posts: Repo.Posts.all()
+    render conn, "index.html", posts: Repo.Posts.all(), title: "Idiomatic and useful code"
   end
 
   def tag(conn, params) do
@@ -19,16 +19,17 @@ defmodule GC.Web.PageController do
   end
 
   def tags(conn, _) do
-    render conn, "tags.html", tags: Repo.Posts.all_tags
+    render conn, "tags.html", tags: Repo.Posts.all_tags, title: "All tags"
   end
 
   def archives(conn, _) do
-    render conn, "archives.html", posts: Repo.Posts.all
+    render conn, "archives.html", posts: Repo.Posts.all, title: "Archives"
   end
 
   def show(conn, %{"id" => id, "folder" => folder}) do
     post = Posts.find_by_id(folder, id)
-    render conn, "show.html", post: post
+    render conn, "show.html", post: post, title: post.title,
+      canonical_path: GC.Web.PageView.post_url(post)
   end
 
   def permalink(conn, %{"id" => id, "folder" => folder}) do

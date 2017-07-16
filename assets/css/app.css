@@ -49,7 +49,7 @@ table {
 
 /*core css*/
 .container{
-  font-family: monospace;
+  font-family: 'Source Code Pro', monospace;
   font-size: 1.3em;
   max-width: 1300px;
   margin: 0 auto;
