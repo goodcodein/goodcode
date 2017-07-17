@@ -28,9 +28,10 @@ defmodule GC.Web.Router do
     get "/:folder", PageController, :folder
   end
 
+  @webhook_secret System.get_env("GOODCODE_GH_WEBHOOK_SECRET")
   scope "/webhook/", GC.Web do
     pipe_through :api
-    post "/sync/", WebhookController, :github_sync
+    post "/sync/#{@webhook_secret}", WebhookController, :github_sync
   end
 
   # Other scopes may use custom stacks.
