@@ -49,8 +49,8 @@ table {
 
 /*core css*/
 .container{
-  font-family: 'Source Code Pro', monospace;
-  font-size: 1.3em;
+  font-family: 'Merriweather', serif;
+  font-size: 300;
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -121,6 +121,11 @@ a.tag::before{
 
 .post + .post {
   border-top: solid orangered 2px;
+}
+
+pre, code{
+  font-family: "Open Sans", monospace;
+  font-size: 400;
 }
 
 h1.title{

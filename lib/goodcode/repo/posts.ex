@@ -5,6 +5,7 @@ defmodule Repo.Posts do
   """
 
   use GenServer
+  @nostate []
 
   @ids_tab :ids_tab
   @posts_tab :posts_tab
@@ -19,8 +20,9 @@ defmodule Repo.Posts do
   """
   @spec all() :: list(Post.t)
   def all do
-    :ets.tab2list(@posts_tab)
-    |> Enum.map(fn {_, post} -> post end)
+    []
+    #:ets.tab2list(@posts_tab)
+    #|> Enum.map(fn {_, post} -> post end)
   end
 
   @spec all_tags() :: [String.t]
@@ -70,16 +72,17 @@ defmodule Repo.Posts do
   # end of client api
 
   def start_link do
-    GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
+    GenServer.start_link(__MODULE__, @nostate, name: __MODULE__)
   end
 
-  def init(:ok) do
+  def init(@nostate) do
+    send(self(), :init)
     # this is a blocking which is fine, as we are preparing our critical data
-    {:ok, init_state()}
+    {:ok, @nostate}
   end
 
   # gets all our posts and renders them properly for later use
-  defp init_state() do
+  def handle_info(:init, @nostate) do
     :ets.new(@posts_tab, [:named_table, :set, :public,
                           {:write_concurrency, true}, {:read_concurrency, true}])
     :ets.new(@subdomains_posts_tab, [:named_table, :bag, :public,
@@ -99,5 +102,6 @@ defmodule Repo.Posts do
         :ets.insert(@tags_tab, {tag, post_url})
       end)
     end)
+    {:noreply, @nostate}
   end
 end
