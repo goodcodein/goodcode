@@ -1,3 +1,6 @@
-#!/bin/sh
-touch tmp/restart.txt
-echo "restarting Passenger app"
+#!/bin/bash
+
+echo "restarting goodcode"
+sudo systemctl stop goodcode.service
+sudo systemctl start goodcode.service
+echo "finished restarting goodcode"

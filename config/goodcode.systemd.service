@@ -1,0 +1,17 @@
+[Unit]
+Description=goodcode phoenix app
+After=network.target
+
+[Service]
+User=goodcode
+WorkingDirectory=/opt/www/goodcode
+EnvironmentFile=/opt/www/goodcode/env
+ExecStart=/opt/www/goodcode/_build/prod/rel/goodcode/bin/goodcode foreground
+ExecStop=/opt/www/goodcode/_build/prod/rel/goodcode/bin/goodcode stop
+Restart=always
+StandardInput=null
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n
+KillMode=process
+TimeoutStopSec=5
