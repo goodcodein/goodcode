@@ -3,7 +3,7 @@ defmodule GC.Mixfile do
 
   def project do
     [app: :goodcode,
-     version: "0.0.1",
+     version: app_version(),
      elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -41,6 +41,14 @@ defmodule GC.Mixfile do
      {:cortex, "~> 0.2", only: [:dev, :test]},
      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:distillery, "~> 1.4"},
     ]
   end
+
+  defp app_version do
+    # get git version
+    {ts, 0} = System.cmd("git", ~w[describe])
+    _git_version = String.strip(ts) |> String.split("-") |> Enum.take(2) |> Enum.join(".") |> String.replace_leading("v", "")
+  end
+
 end
