@@ -27,6 +27,7 @@ defmodule GC.Web.Router do
     get "/:folder/:id", PageController, :permalink
     get "/:folder", PageController, :folder
 
+    post "/webhook/sync/", WebhookController, :github_sync
   end
 
   # Other scopes may use custom stacks.
