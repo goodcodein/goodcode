@@ -4,7 +4,10 @@ defmodule GC.Web.WebhookController do
   require Logger
   def github_sync(conn, _params) do
     Logger.info "webhook received"
-    spawn(fn -> Repo.GithubRepo.sync  end)
+    spawn(fn ->
+      Repo.GithubRepo.sync
+      Repo.Posts.sync
+    end)
     text conn, "ok"
   end
 

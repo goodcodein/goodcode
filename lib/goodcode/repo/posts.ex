@@ -68,6 +68,10 @@ defmodule Repo.Posts do
       end
     end)
   end
+
+  def sync do
+    GenServer.cast(__MODULE__, :sync)
+  end
   # end of client api
 
   def start_link do
@@ -91,6 +95,11 @@ defmodule Repo.Posts do
     :ets.new(@ids_tab, [:named_table, :set, :public,
                           {:write_concurrency, true}, {:read_concurrency, true}])
 
+    sync()
+    {:noreply, @nostate}
+  end
+
+  def handle_cast(:sync, @nostate) do
     Repo.GithubRepo.all
     |> Enum.each(fn post ->
       post_url = Post.url(post)
