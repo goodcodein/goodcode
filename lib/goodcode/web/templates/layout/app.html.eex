@@ -12,7 +12,8 @@
       <link rel="canonical" href="http://goodcode.in<%= GC.Web.PageView.post_url @post %>" />
     <% end %>
 
-    <link href='//fonts.googleapis.com/css?family=Merriweather:300,700,300italic|Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
 
     <title><%= @title %> - goodcode</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
