@@ -131,3 +131,7 @@ pre, code{
 h1.title{
   border-bottom: solid #bbb 4px;
 }
+
+code{
+  margin: 5px 0;
+}

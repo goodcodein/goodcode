@@ -20,9 +20,8 @@ defmodule Repo.Posts do
   """
   @spec all() :: list(Post.t)
   def all do
-    []
-    #:ets.tab2list(@posts_tab)
-    #|> Enum.map(fn {_, post} -> post end)
+    :ets.tab2list(@posts_tab)
+    |> Enum.map(fn {_, post} -> post end)
   end
 
   @spec all_tags() :: [String.t]
@@ -94,8 +93,8 @@ defmodule Repo.Posts do
 
     Repo.GithubRepo.all
     |> Enum.each(fn post ->
-      {subdomain, _} = post_url = Post.url(post)
-      :ets.insert(@subdomains_posts_tab, {subdomain, post_url})
+      post_url = Post.url(post)
+      :ets.insert(@subdomains_posts_tab, {post.folder, post_url})
       :ets.insert(@posts_tab, {post_url, post})
       :ets.insert(@ids_tab, {{post.folder, post.id}, post_url})
       post.tags |> Enum.each(fn tag ->
