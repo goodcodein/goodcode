@@ -7,7 +7,9 @@ use Mix.Config
 
 # General application configuration
 config :goodcode,
-  namespace: GC
+  namespace: GC,
+  repo_url: "https://github.com/goodcodein/goodcode.in",
+  repo_dir: Path.expand("../data/goodcode/", __DIR__)
 
 
 # Configures the endpoint

@@ -12,7 +12,8 @@ defmodule GC.Application do
       supervisor(GC.Web.Endpoint, []),
       # Start your own worker by calling: GC.Worker.start_link(arg1, arg2, arg3)
       # worker(GC.Worker, [arg1, arg2, arg3]),
-      worker(Repo.Posts, []),
+      #worker(Repo.Posts, []),
+      worker(Task, [&Repo.GithubRepo.sync/0], restart: :temporary),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

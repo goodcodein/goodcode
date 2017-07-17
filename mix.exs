@@ -39,6 +39,7 @@ defmodule GC.Mixfile do
      {:timex, "~> 3.1" },
 
      {:cortex, "~> 0.2", only: [:dev, :test]},
+     {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
     ]
   end
