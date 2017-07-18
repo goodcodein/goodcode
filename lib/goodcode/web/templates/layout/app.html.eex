@@ -26,6 +26,7 @@
         <a href="/">goodcode</a>
         <a href="/archives">archives</a>
         <a href="/tags">tags</a>
+        <a href="/rss.xml">rss</a>
       </header>
 
       <p class="alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
