@@ -26,7 +26,7 @@ defmodule Repo.GithubRepo do
 
   @spec pull(String.t) :: any
   defp pull(repo_dir) do
-    run ~s[cd #{repo_dir}; git pull origin master:master]
+    run ~s[cd #{repo_dir}; git reset --hard HEAD && git clean -f -d && git pull]
   end
 
   @spec run(cmd :: String.t) :: any
