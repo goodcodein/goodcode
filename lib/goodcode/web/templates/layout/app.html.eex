@@ -9,7 +9,7 @@
 
     <%= if @conn.assigns[:post] do %>
       <meta name="description" content="<%= @post.title %>">
-      <link rel="canonical" href="http://goodcode.in<%= GC.Web.PageView.post_url @post %>" />
+      <link rel="canonical" href="https://goodcode.in<%= GC.Web.PageView.post_url @post %>" />
     <% end %>
 
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
@@ -36,7 +36,7 @@
       </main>
 
       <footer>
-        <a href='http://goodcode.in'>goodcode.in</a> &copy; 2017
+        <a href='https://goodcode.in'>goodcode.in</a> &copy; 2017
         &mdot;
         <a href='https://twitter.com/goodcodein'>@goodcodein on twitter</a>
         &mdot;
