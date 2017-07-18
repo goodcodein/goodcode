@@ -123,10 +123,6 @@ a.tag::before{
   border-top: solid orangered 2px;
 }
 
-h1.title{
-  border-bottom: solid #bbb 4px;
-}
-
 pre{
   margin: 5px 0;
 }
@@ -134,4 +130,10 @@ pre{
 pre, code{
   font-family: 'Source Code Pro', monospace
   font-size: 400;
+}
+
+h1.title {
+  padding-bottom: 9px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid #eee;
 }
