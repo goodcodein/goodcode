@@ -22,7 +22,7 @@ defmodule Repo.Posts do
   def all do
     :ets.tab2list(@posts_tab)
     |> Enum.map(fn {_, post} -> post end)
-    |> Enum.sort_by(fn post -> post.date end)
+    |> Enum.sort_by(fn post -> -1 * DateTime.to_unix(post.date) end)
   end
 
   @spec all_tags() :: [String.t]

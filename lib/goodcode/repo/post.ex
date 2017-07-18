@@ -23,7 +23,7 @@ defmodule Repo.Post do
 
     %{'id' => id, 'title' => title, 'date' => date_str, 'tags' => tags} = :yamerl.decode(front_matter) |> hd |> Map.new
 
-    {:ok, date, _} = ((date_str |> to_string) <> "T00:00:00Z") |> DateTime.from_iso8601
+    {:ok, date, _} = date_str |> to_string |> DateTime.from_iso8601
 
     {:ok, %Post{
       id: to_string(id),

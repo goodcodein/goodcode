@@ -37,6 +37,12 @@
 
       <footer>
         <a href='http://goodcode.in'>goodcode.in</a> &copy; 2017
+        &mdot;
+        <a href='https://twitter.com/goodcodein'>@goodcodein on twitter</a>
+        &mdot;
+        <a href='https://github.com/goodcodein/'>@goodcodein on github</a>
+
+
       </footer>
 
     </div> <!-- /container -->
