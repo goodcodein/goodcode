@@ -137,3 +137,15 @@ h1.title {
   margin: 0 0 20px;
   border-bottom: 1px solid #eee;
 }
+
+footer {
+  font-size: 1em;
+  text-align: center;
+}
+footer a::before{
+  content: none;
+}
+footer a{
+  text-decoration:underline;
+}
+
