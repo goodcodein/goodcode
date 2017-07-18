@@ -80,8 +80,12 @@ defmodule Repo.Posts do
   end
 
   def init(@nostate) do
-    send(self(), :init)
     # this is a blocking which is fine, as we are preparing our critical data
+    # we need to have updated repo before we start our app,
+    # as there may be instances where we have screwed up our data and have to fix it
+    # and we need that fixed data to be imported before the app starts
+    Repo.GithubRepo.sync
+    send(self(), :init)
     {:ok, @nostate}
   end
 
