@@ -149,3 +149,6 @@ footer a{
   text-decoration:underline;
 }
 
+.post-date, .github-source, .tags{
+  display: inline-block;
+}

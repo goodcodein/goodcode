@@ -1,5 +1,16 @@
 2017-07-14 18:53:18|allow managing multiple blogs through a single git repository
 2017-07-14 18:53:28|allow users to post using GitHub
 2017-07-14 18:53:44|show authors using git history
-2017-07-14 18:53:54|allow adding markdown to posts
-2017-07-14 18:54:04|allow adding code snippets in posts
+2017-07-18 15:06:13|add rss per tag
+2017-07-18 15:06:16|add rss per folder
+2017-07-18 15:06:35|add favicon
+2017-07-18 15:06:40|add icon-logo
+2017-07-18 15:06:44|add twitter cards
+2017-07-18 15:06:48|add metadata
+2017-07-18 15:06:53|add random post view button
+2017-07-18 15:07:04|add view on github-contribute buttons
+2017-07-18 15:07:08|add tweet buttons
+2017-07-18 15:08:01|add auto tweet about post
+2017-07-18 15:08:43|schedule posts to be published in a constant stream
+2017-07-18 15:08:57|add ability to comment
+2017-07-18 15:09:01|add ability to like a post
