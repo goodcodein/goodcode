@@ -159,3 +159,8 @@ footer a{
 .post-date, .github-source, .tags{
   display: inline-block;
 }
+
+ul {
+  list-style-type: decimal;
+  margin-left: 40px;
+}
