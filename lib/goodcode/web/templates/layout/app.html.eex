@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="alternative" href="/rss.xml" title="goodcode" type="application/rss+xml">
+    <link rel="alternative" href="http://feeds.feedburner.com/goodcode" title="goodcode" type="application/rss+xml">
 
     <%= if @conn.assigns[:post] do %>
       <meta name="description" content="<%= @post.title %>">
@@ -26,7 +26,7 @@
         <a href="/">goodcode</a>
         <a href="/archives">archives</a>
         <a href="/tags">tags</a>
-        <a href="/rss.xml">rss</a>
+        <a href="http://feeds.feedburner.com/goodcode">rss</a>
       </header>
 
       <p class="alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
@@ -42,6 +42,10 @@
         <a href='https://twitter.com/goodcodein'>@goodcodein on twitter</a>
         &middot;
         <a href='https://github.com/goodcodein/'>@goodcodein on github</a>
+        &middot;
+        <a href='http://feeds.feedburner.com/goodcode'>rss feed</a>
+        &middot;
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=goodcode&amp;loc=en_US">subscribe by email</a>
       </footer>
 
     </div> <!-- /container -->
