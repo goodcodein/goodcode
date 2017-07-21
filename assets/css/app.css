@@ -87,8 +87,15 @@ header a, footer a {
   color: #222;
 }
 
-header a::before, footer a::before {
-  content: '#';
+header a:hover, footer a:hover {
+  color: #fff;
+}
+
+header a::before{
+  content: '[';
+}
+header a::after{
+  content: ']';
 }
 
 .post{
