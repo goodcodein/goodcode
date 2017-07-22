@@ -15,7 +15,7 @@
       <% end %>
     </div>
     <div class="github-source">
-      <%= link "Source on GitHub", to: "https://github.com/goodcodein/goodcode.in/edit/master#{@post.github_path}", title: "Contribute to this blog post :)" %>
+      <%= link "Source on GitHub", to: "https://github.com/goodcodein/goodcode.in/blob/master#{@post.github_path}", title: "Contribute to this blog post :)" %>
     </div>
   </div>
 </div>
